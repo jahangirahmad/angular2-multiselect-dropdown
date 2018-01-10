@@ -22,6 +22,7 @@ import { TabViewModule } from 'primeng/primeng';
 import { UsingWithFormExample } from './examples/usingWithForms';
 import { UsingWithReactiveFormExample } from './examples/usingInReactForms';
 import { LazyLoadingExample } from './examples/lazyLoading';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { LazyLoadingExample } from './examples/lazyLoading';
     HttpModule,
     AppRouterModule,
     AngularMultiSelectModule,
+    ClickOutsideModule,
     TabViewModule
   ],
   providers: [],

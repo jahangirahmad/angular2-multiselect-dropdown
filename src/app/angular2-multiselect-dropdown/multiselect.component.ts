@@ -3,7 +3,6 @@ import { FormsModule, NG_VALUE_ACCESSOR, ControlValueAccessor, NG_VALIDATORS, Va
 import { CommonModule } from '@angular/common';
 import { ListItem, MyException } from './multiselect.model';
 import { DropdownSettings } from './multiselect.interface';
-import { ClickOutsideDirective, ScrollDirective, styleDirective } from './clickOutside';
 import { ListFilterPipe } from './list-filter';
 import { Item, TemplateRenderer } from './menu-item';
 
@@ -121,7 +120,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
                 }
             }
         }
-        if (changes.settings && !changes.settings.firstChange) { 
+        if (changes.settings && !changes.settings.firstChange) {
             this.settings = Object.assign(this.defaultSettings, this.settings);
             console.log(this.settings);
         }
@@ -329,7 +328,7 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
         var firstTemp = ""+first;
         first = parseInt(firstTemp) < 0 ? 0 : parseInt(firstTemp);
             this.renderChunk(first, this.cachedItemsLen);
-            this.lastRepaintY = scrollPos;      
+            this.lastRepaintY = scrollPos;
     }
     public filterInfiniteList(evt: any){
         var filteredElems:Array<any> = [];
@@ -355,13 +354,13 @@ export class AngularMultiSelect implements OnInit, ControlValueAccessor, OnChang
             this.totalHeight = this.itemHeight * this.data.length;
             this.totalRows = this.data.length;
             this.updateView(this.scrollTop);
-        } 
+        }
     }
 }
 
 @NgModule({
     imports: [CommonModule, FormsModule],
-    declarations: [AngularMultiSelect, ClickOutsideDirective, ScrollDirective, styleDirective, ListFilterPipe, Item, TemplateRenderer],
-    exports: [AngularMultiSelect, ClickOutsideDirective, ScrollDirective, styleDirective, ListFilterPipe, Item, TemplateRenderer]
+    declarations: [AngularMultiSelect, ListFilterPipe, Item, TemplateRenderer],
+    exports: [AngularMultiSelect, ListFilterPipe, Item, TemplateRenderer]
 })
 export class AngularMultiSelectModule { }
